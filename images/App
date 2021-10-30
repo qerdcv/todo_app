@@ -1,0 +1,11 @@
+FROM golang:latest as base
+
+WORKDIR /go/src/todo_app
+COPY . .
+
+RUN go get -d -v ./...
+RUN go install -v ./...
+EXPOSE 8080
+
+FROM base as prod
+RUN go build -o /app .

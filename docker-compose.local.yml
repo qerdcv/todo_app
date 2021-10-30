@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  web:
+    command: go run .
+    build:
+      target: base
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./templates/:/go/src/todo_app/templates/
+      - ./static/:/go/src/todo_app/static/

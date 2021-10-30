@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    height: 100vh;
+    background: #161b22;
+    color: #fff;
+    font-size: 30px;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #fff;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 10px 0;
+}
+
+input {
+    height: 30px;
+    border: none;
+    font-size: 18px;
+}
+
+input[type='submit'] {
+    display: flex;
+    padding: 0 10px;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightcoral;
+    user-select: none;
+    margin-left: 20px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}

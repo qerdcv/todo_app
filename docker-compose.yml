@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: images/Db
+    restart: always
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: todo_app
+
+  web:
+    command: go run .
+    restart: always
+    build:
+      context: .
+      dockerfile: images/App
+    depends_on:
+      - db
+    links:
+      - db
+
+
+volumes:
+  db:

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="/static/styles/index.css">
+    <link rel="icon" href="/static/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <h1>ToDo App</h1>
+        {{ if not .}}
+            <span>No todos yet</span>
+        {{ else }}
+            <ol class="todo-list">
+            {{ range .}}
+                <li>
+                    <span class="todo-item">
+                        <span>{{ .Text.String}}</span>
+                        <a href="/delete?id={{ .ID.Int32}}"><span class="delete-button">&times;</span></a>
+                    </span>
+                </li>
+            {{ end }}
+        {{ end }}
+        </ol>
+        <form action="create" method="post">
+            <div class="form-control">
+                <label for="text">ToDo Text:</label>
+                <input required type="text" name="text" id="text" placeholder="ToDo Text">
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
